@@ -10,9 +10,11 @@ class Prise < Formula
 
   def install
     system "zig", "build", "-Doptimize=ReleaseSafe", "--prefix", prefix
-    bash_completion.install "completions/prise.bash" => "prise"
-    zsh_completion.install "completions/prise.zsh" => "_prise"
-    fish_completion.install "completions/prise.fish"
+  end
+
+  service do
+    run [opt_bin/"prise", "serve"]
+    keep_alive true
   end
 
   test do
