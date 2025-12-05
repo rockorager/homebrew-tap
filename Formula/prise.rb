@@ -7,6 +7,7 @@ class Prise < Formula
   head "https://github.com/rockorager/prise.git", branch: "main"
 
   depends_on "zig" => :build
+  depends_on xcode: :build
 
   def install
     system "zig", "build", "-Doptimize=ReleaseSafe", "--prefix", prefix
