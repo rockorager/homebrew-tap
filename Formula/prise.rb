@@ -1,8 +1,8 @@
 class Prise < Formula
   desc "Terminal multiplexer targeted at modern terminals"
   homepage "https://github.com/rockorager/prise"
-  url "https://github.com/rockorager/prise/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "5845a8fa440a6b827d9b20507da2c4bb3e382bce5dcbaf11307fc148599d8135"
+  url "https://github.com/rockorager/prise/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "bcd2b8c1991f56ec393585398fe33f94cd1ff000f1892518f9d1ec0ea5512a7c"
   license "MIT"
   head "https://github.com/rockorager/prise.git", branch: "main"
 
