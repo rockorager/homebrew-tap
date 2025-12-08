@@ -1,0 +1,32 @@
+name: Update Prise Formula
+
+on:
+  repository_dispatch:
+    types: [prise-release]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update formula
+        env:
+          VERSION: ${{ github.event.client_payload.version }}
+          TAG: ${{ github.event.client_payload.tag }}
+        run: |
+          URL="https://github.com/rockorager/prise/archive/refs/tags/${TAG}.tar.gz"
+          SHA256=$(curl -sL "$URL" | sha256sum | cut -d' ' -f1)
+          
+          sed -i "s|url \"https://github.com/rockorager/prise/archive/.*\"|url \"${URL}\"|" Formula/prise.rb
+          sed -i "s|sha256 \"[a-f0-9]*\"|sha256 \"${SHA256}\"|" Formula/prise.rb
+
+      - name: Commit and push
+        env:
+          VERSION: ${{ github.event.client_payload.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/prise.rb
+          git commit -m "prise: update to ${VERSION}"
+          git push
