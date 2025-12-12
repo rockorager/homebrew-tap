@@ -10,7 +10,7 @@ class Prise < Formula
   depends_on xcode: :build
 
   def install
-    system "zig", "build", "-Doptimize=ReleaseSafe", "--prefix", prefix
+    system "zig", "build", "-Doptimize=ReleaseSafe", "-Dlua-check=false", "--prefix", prefix
   end
 
   service do
