@@ -1,8 +1,8 @@
 class Zigdoc < Formula
   desc "Command-line tool to view documentation for Zig standard library symbols"
   homepage "https://github.com/rockorager/zigdoc"
-  url "https://github.com/rockorager/zigdoc/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "ad2803fbef79c7a812540674209b4c8b679c3e48c3af7fdfc143923e3e1b2083"
+  url "https://github.com/rockorager/zigdoc/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "84bb397dff39949af6d48be814d0cee0b824a2c364f03f24c8f4f89062632369"
   license "MIT"
   head "https://github.com/rockorager/zigdoc.git", branch: "main"
 
