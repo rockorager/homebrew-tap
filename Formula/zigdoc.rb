@@ -9,7 +9,7 @@ class Zigdoc < Formula
   depends_on "zig" => :build
 
   def install
-    system "zig", "build", "-Doptimize=ReleaseSafe", "--prefix", prefix
+    system "zig", "build", "-Doptimize=ReleaseFast", "--prefix", prefix
   end
 
   test do
